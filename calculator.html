@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <style>
+      .input-box {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        margin-top: 50px;
+        padding: 10px;
+        width: 330px;
+        border-radius: 10px;
+        background-color: black;
+      }
+      .num-box {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+      .btn {
+        height: 80px;
+        width: 80px;
+        font-size: 40px;
+        margin: 5px;
+        background-color: rgba(0, 0, 0, 1);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0.15);
+        transition: opacity 0.25s, background-color 0.25s, color 0.25s,
+          height 0.25s, width 0.25s, font-size 0.25s;
+      }
+      .equals-btn {
+        height: 80px;
+        width: 80px;
+        font-size: 40px;
+        margin: 5px;
+        background-color: rgb(101, 101, 245);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0.15);
+        transition: opacity 0.25s, background-color 0.25s, color 0.25s,
+          height 0.25s, width 0.25s, font-size 0.25s;
+      }
+      .btn:active {
+        height: 75px;
+        width: 75px;
+        font-size: 35px;
+      }
+      .equals-btn:active {
+        height: 75px;
+        width: 75px;
+        font-size: 37px;
+      }
+      .btn:hover {
+        background-color: white;
+        color: black;
+        cursor: pointer;
+      }
+      .equals-btn:hover {
+        background-color: white;
+        color: black;
+        cursor: pointer;
+      }
+      .nums {
+        display: flex;
+        flex-direction: row;
+      }
+      .input {
+        height: 75px;
+        border-radius: 5px;
+        background-color: whitesmoke;
+        font-size: 37px;
+        text-align: right;
+        border: 2px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="input-box">
+      <h1
+        style="
+          text-align: center;
+          margin-top: 40px;
+          margin-bottom: 20px;
+          color: white;
+          font-family: sans-serif;
+        "
+      >
+        Calculator
+      </h1>
+      <input class="input" type="text" placeholder="0" />
+      <div class="num-box">
+        <div class="nums">
+          <button
+            class="btn"
+            onclick="
+              updateValue('7');
+            "
+          >
+            7
+          </button>
+          <button
+            class="btn"
+            onclick="
+            updateValue('8');
+          "
+          >
+            8
+          </button>
+          <button
+            class="btn"
+            onclick="
+          updateValue('9');
+        "
+          >
+            9
+          </button>
+          <button
+            class="btn"
+            onclick="
+          updateValue('/');
+        "
+          >
+            /
+          </button>
+        </div>
+        <div class="nums">
+          <button
+            class="btn"
+            onclick="
+          updateValue('4');
+        "
+          >
+            4
+          </button>
+          <button
+            class="btn"
+            onclick="
+          updateValue('5');
+        "
+          >
+            5
+          </button>
+          <button
+            class="btn"
+            onclick="
+          updateValue('6');
+        "
+          >
+            6
+          </button>
+          <button
+            class="btn"
+            onclick="
+          updateValue('*');
+        "
+          >
+            x
+          </button>
+        </div>
+        <div class="nums">
+          <button
+            class="btn"
+            onclick="
+          updateValue('1');
+        "
+          >
+            1
+          </button>
+          <button
+            class="btn"
+            onclick="
+          updateValue('2');
+        "
+          >
+            2
+          </button>
+          <button
+            class="btn"
+            onclick="
+          updateValue('3');
+        "
+          >
+            3
+          </button>
+          <button
+            class="btn"
+            onclick="
+          updateValue('+');
+        "
+          >
+            +
+          </button>
+        </div>
+        <div class="nums">
+          <button
+            class="equals-btn"
+            onclick="
+            calculate();
+        "
+          >
+            =
+          </button>
+          <button
+            class="btn"
+            onclick="
+          updateValue('0');
+        "
+          >
+            0
+          </button>
+          <button
+            class="btn"
+            onclick="
+          updateValue('.');
+        "
+          >
+            .
+          </button>
+          <button
+            class="btn"
+            onclick="
+          updateValue('-');
+        "
+          >
+            -
+          </button>
+        </div>
+      </div>
+    </div>
+    <script>
+      let value = " ";
+
+      function updateValue(num) {
+        value += num;
+        console.log(value);
+      }
+
+      function calculate() {
+        console.log(eval(value));
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+    <style>
+      .title {
+        text-align: center;
+        color: rgb(225, 137, 137);
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      }
+      .box {
+        background-color: rgba(255, 166, 0, 0.716);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 350px;
+        margin: auto;
+        padding: 20px;
+        border-radius: 10px;
+      }
+      .btn {
+        border: none;
+        color: white;
+        background-color: black;
+        height: 100px;
+        width: 100px;
+        font-size: 20px;
+        border-radius: 50px;
+        font-weight: bold;
+      }
+      .btn:hover {
+        opacity: 0.5;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 class="title">Rock Paper Scissors</h2>
+    <div class="box">
+      <button title="Rock" class="btn" onclick="
+      alert('you selected rock');
+      console.log(Math.random());
+    ">Rock</button>
+      <button title="Paper" class="btn" onclick="
+      alert('you selected paper');
+    ">Paper</button>
+      <button title="Scissors" class="btn" onclick="
+        alert('you selected scissors');
+      ">Scissors</button>
+    </div>
+  </body>
+</html>
