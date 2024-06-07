@@ -67,49 +67,60 @@
     </div>
 
     <script>
+      const score = { wins: 0, looses: 0, ties: 0 };
+
       function playerMove(playerPick) {
         const computerPick = computerMove();
 
         if (playerPick === "rock") {
           if ("rock" === computerPick) {
+            score.ties += 1;
             alert(
-              `you pick ${playerPick}\n computer pick ${computerPick}\n tie`
+              `you pick ${playerPick}\n computer pick ${computerPick}\n tie\n wins: ${score.wins}, losses: ${score.looses}, ties: ${score.ties}`
             );
           } else if ("paper" === computerPick) {
+            score.looses += 1;
             alert(
-              `you pick ${playerPick}\n computer pick ${computerPick}\n you loose`
+              `you pick ${playerPick}\n computer pick ${computerPick}\n you loose\n wins: ${score.wins}, losses: ${score.looses}, ties: ${score.ties}`
             );
           } else if ("scissors" === computerPick) {
+            score.wins += 1;
             alert(
-              `you pick ${playerPick}\n computer pick ${computerPick}\n you win`
+              `you pick ${playerPick}\n computer pick ${computerPick}\n you win\n wins: ${score.wins}, losses: ${score.looses}, ties: ${score.ties}`
             );
           }
         } else if (playerPick === "paper") {
           if ("rock" === computerPick) {
+            score.wins += 1;
             alert(
-              `you pick ${playerPick}\n computer pick ${computerPick}\n you win`
+              `you pick ${playerPick}\n computer pick ${computerPick}\n you win\n wins: ${score.wins}, losses: ${score.looses}, ties: ${score.ties}`
             );
           } else if ("paper" === computerPick) {
+            score.ties += 1;
             alert(
-              `you pick ${playerPick}\n computer pick ${computerPick}\n tie`
+              `you pick ${playerPick}\n computer pick ${computerPick}\n tie\n wins: ${score.wins}, losses: ${score.looses}, ties: ${score.ties}`
             );
           } else if ("scissors" === computerPick) {
+            score.losses += 1;
             alert(
-              `you pick ${playerPick}\n computer pick ${computerPick}\n you loose`
+              `you pick ${playerPick}\n computer pick ${computerPick}\n you loose\n wins: ${score.wins}, losses: ${score.looses}, ties: ${score.ties}`
             );
           }
         } else if (playerPick === "scissors") {
           if ("rock" === computerPick) {
+            score.looses += 1;
             alert(
-              `you pick ${playerPick}\n computer pick ${computerPick}\n you loose`
+              `you pick ${playerPick}\n computer pick ${computerPick}\n you loose\n wins: ${score.wins}, losses: ${score.looses}, ties: ${score.ties}`
             );
           } else if ("paper" === computerPick) {
+            score.wins += 1;
             alert(
-              `you pick ${playerPick}\n computer pick ${computerPick}\n you win`
+              `you pick ${playerPick}\n computer pick ${computerPick}\n you win\n wins: ${score.wins}, losses: ${score.looses}, ties: ${score.ties}`
             );
           } else if ("scissors" === computerPick) {
+            score.ties += 1;
             alert(
-              `you pick ${playerPick}\n computer pick ${computerPick}\n tie`
+              `you pick ${playerPick}\n computer pick ${computerPick}\n tie\n wins: ${score.wins}, losses: ${score.looses}, ties: ${score.ties}`
             );
           }
         }
