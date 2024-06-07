@@ -7,26 +7,34 @@
     <style>
       .title {
         text-align: center;
-        color: white;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: black;
+        font-family: sans-serif;
+        margin-top: 0;
+        margin-bottom: 0;
       }
       body {
-        background-color: rgb(171, 12, 171);
+        background-color: whitesmoke;
         margin: 0;
       }
       .big-box {
         margin-top: 100px;
+        margin-left: 360px;
+        display: inline-block;
       }
       .small-box {
         background-color: white;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 25px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
+      }
+      .move1,
+      .move2,
+      .move3 {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        width: 600px;
-        padding: 30px 20px 30px 20px;
-        border-radius: 10px;
-        margin: auto;
-        box-shadow: 15px 15px 10px rgba(0, 0, 0, 0.15);
+        flex-direction: column;
       }
       .game-images {
         height: 200px;
@@ -37,33 +45,86 @@
       .game-images:hover {
         opacity: 0.5;
         cursor: pointer;
+      }
+      .show-score-btn {
+        font-size: 20px;
+        padding: 10px 100px 10px 100px;
+        background-color: white;
+        font-weight: bold;
+        color: black;
+        border: none;
+        margin-left: 8px;
+      }
+      .show-score-btn:hover {
+        opacity: 0.9;
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+      }
+      .reset-score-btn {
+        font-size: 20px;
+        padding: 10px 100px 10px 100px;
+        border: none;
+        background-color: black;
+        font-weight: bold;
+        color: white;
+        margin-left: 10px;
+      }
+      .reset-score-btn:hover {
+        opacity: 0.9;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+      }
+      .title-box {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: white;
+        height: 60px;
       }
     </style>
   </head>
   <body>
+    <div class="title-box">
+      <h2 style="text-align: center; font-family: Arial">
+        Rock Paper Scissors
+      </h2>
+    </div>
     <div class="big-box">
-      <h1 class="title">Rock Paper Scissors Game</h1>
+      <h2 class="title">Choose a move</h2>
       <div class="small-box">
-        <img
-          class="game-images"
-          src="rock.png"
-          alt="rock"
-          onclick="playerMove('rock');"
-        />
-        <img
-          class="game-images"
-          src="paper.png"
-          alt="rock"
-          onclick="playerMove('paper');"
-        />
-        <img
-          class="game-images"
-          src="scissors.png"
-          alt="rock"
-          onclick="playerMove('scissors');"
-        />
+        <div class="move1">
+          <img
+            class="game-images"
+            src="rock.png"
+            alt="rock"
+            onclick="playerMove('rock');"
+          />
+          <h2 class="title">rock</h2>
+        </div>
+        <div class="move2">
+          <img
+            class="game-images"
+            src="paper.png"
+            alt="rock"
+            onclick="playerMove('paper');"
+          />
+          <h2 class="title">paper</h2>
+        </div>
+        <div class="move3">
+          <img
+            class="game-images"
+            src="scissors.png"
+            alt="rock"
+            onclick="playerMove('scissors');"
+          />
+          <h2 class="title">scissor</h2>
+        </div>
       </div>
+      <button class="show-score-btn" onclick="showScore();">Show score</button>
+      <button class="reset-score-btn" onclick="resetScore();">
+        Reset score
+      </button>
     </div>
 
     <script>
@@ -140,6 +201,21 @@
         }
 
         return computerPick;
+      }
+
+      function showScore() {
+        alert(
+          ` wins: ${score.wins}, losses: ${score.looses}, ties: ${score.ties}`
+        );
+      }
+
+      function resetScore() {
+        score.wins = 0;
+        score.looses = 0;
+        score.ties = 0;
+        alert(
+          `wins: ${score.wins}, losses: ${score.looses}, ties: ${score.ties}`
+        );
       }
     </script>
   </body>
