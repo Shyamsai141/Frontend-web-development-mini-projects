@@ -11,10 +11,18 @@
         font-family: sans-serif;
         margin-top: 0;
         margin-bottom: 0;
-        padding-top: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color: aqua;
+      }
+      .moves-title {
+        color: black;
+        font-family: sans-serif;
+        margin-top: 0;
+        margin-bottom: 0;
       }
       body {
-        background-color: skyblue;
+        background-color: rgb(191, 65, 65);
         margin: 0;
       }
       .small-box {
@@ -22,14 +30,13 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         padding: 25px;
-        margin-top: 20px;
-        box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
       }
       .move1,
       .move2,
       .move3 {
         display: flex;
         flex-direction: column;
+        align-items: center;
       }
       .game-images {
         height: 180px;
@@ -44,32 +51,33 @@
       .show-score-btn {
         font-size: 20px;
         padding: 10px 100px 10px 100px;
-        background-color: white;
+        background-color: black;
         font-weight: bold;
-        color: black;
-        border: 2px solid black;
+        color: white;
+        border: none;
         transition: box-shadow 0.3s, color 0.3s, background-color 0.3s;
       }
       .show-score-btn:hover {
-        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.5);
         cursor: pointer;
-        background-color: black;
-        color: white;
+        background-color: white;
+        color: black;
       }
       .reset-score-btn {
         font-size: 20px;
         padding: 10px 100px 10px 100px;
-        border: none;
         background-color: black;
         font-weight: bold;
         color: white;
-        margin-left: 10px;
-        transition: opacity 0.2s, box-shadow 0.2s;
+        border: none;
+        margin-left: 6px;
+        transition: box-shadow 0.3s, color 0.3s, background-color 0.3s;
       }
       .reset-score-btn:hover {
-        opacity: 0.9;
-        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.5);
         cursor: pointer;
+        background-color: white;
+        color: black;
       }
       .title-box {
         position: fixed;
@@ -80,21 +88,18 @@
         height: 60px;
       }
       .game-layout {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        column-gap: 20px;
-        margin-top: 80px;
-        margin-left: 80px;
-        margin-right: 80px;
-        margin-bottom: 20px;
-      }
-      .score-layout {
-        background-color: white;
-        margin-top: 70px;
         display: flex;
         flex-direction: column;
+        margin-top: 30px;
+        margin-left: 350px;
+        margin-right: 350px;
+        justify-content: center;
         box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
-        border-radius: 20px;
+      }
+      .score-layout {
+        background-color: aqua;
+        display: flex;
+        flex-direction: column;
         align-items: center;
       }
       .selection {
@@ -110,18 +115,19 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
+        margin-bottom: 10px;
       }
     </style>
   </head>
   <body>
-    <div class="title-box">
+    <!-- <div class="title-box">
       <h2 style="text-align: center; font-family: Arial; color: green">
         Rock Paper Scissors Game
       </h2>
-    </div>
+    </div> -->
     <div class="game-layout">
       <div class="big-box">
-        <h2 class="title">Pick a move</h2>
+        <h2 class="title">Pick a Move</h2>
         <div class="small-box">
           <div class="move1">
             <img
@@ -130,7 +136,7 @@
               alt="rock"
               onclick="playerMove('rock');"
             />
-            <h2 class="title">rock</h2>
+            <h2 class="moves-title">Rock</h2>
           </div>
           <div class="move2">
             <img
@@ -139,7 +145,7 @@
               alt="rock"
               onclick="playerMove('paper');"
             />
-            <h2 class="title">paper</h2>
+            <h2 class="moves-title">Paper</h2>
           </div>
           <div class="move3">
             <img
@@ -148,89 +154,135 @@
               alt="rock"
               onclick="playerMove('scissors');"
             />
-            <h2 class="title">scissor</h2>
+            <h2 class="moves-title">Scissor</h2>
           </div>
         </div>
       </div>
       <div class="score-layout">
         <div class="selection">
           <h2 class="pick">Your Move :</h2>
-          <h2 class="pick" style="color: blue">Move</h2>
+          <h2
+            class="ppick"
+            style="
+              margin-top: 22px;
+              margin-bottom: 0;
+              font-family: sans-serif;
+              color: red;
+            "
+          >
+            Move
+          </h2>
         </div>
         <div class="selection">
           <h2 class="pick">Computer Move :</h2>
-          <h2 class="pick" style="color: blue">Move</h2>
+          <h2
+            class="cpick"
+            style="
+              margin-top: 22px;
+              margin-bottom: 0;
+              font-family: sans-serif;
+              color: blue;
+            "
+          >
+            Move
+          </h2>
         </div>
-        <h2 class="pick">Status</h2>
-        <h2 class="pick" style="color: blue">Score Stats</h2>
-        <h2 class="pick" style="color: rgb(202, 37, 37)">
-          Wins: 0 Losses: 0 Ties: 0
+        <h2
+          class="result"
+          style="margin-top: 22px; margin-bottom: 0; font-family: sans-serif"
+        >
+          Status
         </h2>
+        <h2 class="pick" style="text-decoration: underline">Score Stats</h2>
+        <h2
+          class="stats"
+          style="
+            margin-top: 22px;
+            margin-bottom: 0;
+            font-family: sans-serif;
+            color: rgb(202, 37, 37);
+            margin-bottom: 20px;
+          "
+        >
+          Wins:0, Losses:0, Ties:0
+        </h2>
+        <div class="btns">
+          <button class="show-score-btn" onclick="showScore();">
+            Show score
+          </button>
+          <button class="reset-score-btn" onclick="resetScore();">
+            Reset score
+          </button>
+        </div>
       </div>
-    </div>
-    <div class="btns">
-      <button class="show-score-btn" onclick="showScore();">Show score</button>
-      <button class="reset-score-btn" onclick="resetScore();">
-        Reset score
-      </button>
     </div>
 
     <script>
       const score = JSON.parse(localStorage.getItem("score"));
 
+      const pmove = document.querySelector(".ppick");
+      const cmove = document.querySelector(".cpick");
+      const game_result = document.querySelector(".result");
+      const game_stats = document.querySelector(".stats");
+
+      game_stats.innerText = `Wins:${score.wins}, Losses:${score.looses}, Ties:${score.ties}`;
+
       function playerMove(playerPick) {
         const computerPick = computerMove();
 
         if (playerPick === "rock") {
+          pmove.innerText = "Rock";
           if ("rock" === computerPick) {
+            cmove.innerText = "Rock";
             score.ties += 1;
-            alert(
-              `you pick ${playerPick}\n computer pick ${computerPick}\n tie\n wins: ${score.wins}, losses: ${score.looses}, ties: ${score.ties}`
-            );
+            game_result.innerText = "Tie";
+            game_stats.innerText = `Wins:${score.wins}, Losses:${score.looses}, Ties:${score.ties}`;
           } else if ("paper" === computerPick) {
+            cmove.innerText = "Paper";
             score.looses += 1;
-            alert(
-              `you pick ${playerPick}\n computer pick ${computerPick}\n you loose\n wins: ${score.wins}, losses: ${score.looses}, ties: ${score.ties}`
-            );
+            game_result.innerText = "You lost";
+            game_stats.innerText = `Wins:${score.wins}, Losses:${score.looses}, Ties:${score.ties}`;
           } else if ("scissors" === computerPick) {
+            cmove.innerText = "Scissors";
             score.wins += 1;
-            alert(
-              `you pick ${playerPick}\n computer pick ${computerPick}\n you win\n wins: ${score.wins}, losses: ${score.looses}, ties: ${score.ties}`
-            );
+            game_result.innerText = "You won";
+            game_stats.innerText = `Wins:${score.wins}, Losses:${score.looses}, Ties:${score.ties}`;
           }
         } else if (playerPick === "paper") {
+          pmove.innerText = "Paper";
           if ("rock" === computerPick) {
+            cmove.innerText = "Rock";
             score.wins += 1;
-            alert(
-              `you pick ${playerPick}\n computer pick ${computerPick}\n you win\n wins: ${score.wins}, losses: ${score.looses}, ties: ${score.ties}`
-            );
+            game_result.innerText = "Yon won";
+            game_stats.innerText = `Wins:${score.wins}, Losses:${score.looses}, Ties:${score.ties}`;
           } else if ("paper" === computerPick) {
+            cmove.innerText = "Paper";
             score.ties += 1;
-            alert(
-              `you pick ${playerPick}\n computer pick ${computerPick}\n tie\n wins: ${score.wins}, losses: ${score.looses}, ties: ${score.ties}`
-            );
+            game_result.innerText = "Tie";
+            game_stats.innerText = `Wins:${score.wins}, Losses:${score.looses}, Ties:${score.ties}`;
           } else if ("scissors" === computerPick) {
-            score.losses += 1;
-            alert(
-              `you pick ${playerPick}\n computer pick ${computerPick}\n you loose\n wins: ${score.wins}, losses: ${score.looses}, ties: ${score.ties}`
-            );
+            cmove.innerText = "Scissors";
+            score.looses += 1;
+            game_result.innerText = "You lost";
+            game_stats.innerText = `Wins:${score.wins}, Losses:${score.looses}, Ties:${score.ties}`;
           }
         } else if (playerPick === "scissors") {
+          pmove.innerText = "Scissors";
           if ("rock" === computerPick) {
+            cmove.innerText = "Rock";
             score.looses += 1;
-            alert(
-              `you pick ${playerPick}\n computer pick ${computerPick}\n you loose\n wins: ${score.wins}, losses: ${score.looses}, ties: ${score.ties}`
-            );
+            game_result.innerText = "You lost";
+            game_stats.innerText = `Wins:${score.wins}, Losses:${score.looses}, Ties:${score.ties}`;
           } else if ("paper" === computerPick) {
+            cmove.innerText = "Paper";
             score.wins += 1;
-            alert(
-              `you pick ${playerPick}\n computer pick ${computerPick}\n you win\n wins: ${score.wins}, losses: ${score.looses}, ties: ${score.ties}`
-            );
+            game_result.innerText = "You won";
+            game_stats.innerText = `Wins:${score.wins}, Losses:${score.looses}, Ties:${score.ties}`;
           } else if ("scissors" === computerPick) {
+            cmove.innerText = "Scissors";
             score.ties += 1;
-            alert(
-              `you pick ${playerPick}\n computer pick ${computerPick}\n tie\n wins: ${score.wins}, losses: ${score.looses}, ties: ${score.ties}`
-            );
+            game_result.innerText = "Tie";
+            game_stats.innerText = `Wins:${score.wins}, Losses:${score.looses}, Ties:${score.ties}`;
           }
         }
         localStorage.setItem("score", JSON.stringify(score));
@@ -265,6 +317,7 @@
         alert(
           `your score is reset\nwins: ${score.wins}, losses: ${score.looses}, ties: ${score.ties}`
         );
+        game_stats.innerText = `Wins:${score.wins}, Losses:${score.looses}, Ties:${score.ties}`;
         localStorage.setItem("score", JSON.stringify(score));
       }
     </script>
