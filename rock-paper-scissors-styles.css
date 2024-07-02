@@ -131,3 +131,10 @@
     font-family: sans-serif;
     color: blue;
   }
+  .stat{
+    margin-top: 22px;
+    margin-bottom: 0;
+    font-family: sans-serif;
+    color: rgb(202, 37, 37);
+    margin-bottom: 20px;
+  }
